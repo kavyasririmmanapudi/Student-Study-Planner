@@ -1,0 +1,705 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<section id="loginPage" class="screen login-screen">
+
+  <div class="login-card">
+
+    <div class="logo">🎓</div>
+
+    <h1>STUDY HOME</h1>
+
+    <p>Plan. Study. Succeed.</p>
+
+    <input id="username" type="text" placeholder="Enter your name">
+
+    <input id="password" type="password" placeholder="Enter password">
+
+    <button onclick="login()">SIGN IN →</button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WELCOME ================= -->
+
+<section id="welcomePage" class="screen welcome-screen hidden">
+
+  <div class="welcome-card">
+
+    <div class="welcome-icon">📚</div>
+
+    <h1>WELCOME TO<br><span>STUDY HOME</span></h1>
+
+    <p>
+      Plan your studies.<br>
+      Track your progress.<br>
+      Achieve your goals. ✨
+    </p>
+
+    <button onclick="showCourses()">START 🚀</button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= COURSES ================= -->
+
+<section id="coursePage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+        <b>STUDY HOME</b>
+        <small>Plan. Study. Succeed.</small>
+      </div>
+
+    </div>
+
+    <nav>
+      <span>⌂ Home</span>
+      <span class="active">🎓 Courses</span>
+      <span>🎯 Goals</span>
+      <span>📊 Progress</span>
+      <span>📅 Schedule</span>
+      <span>♙ Profile</span>
+    </nav>
+
+  </header>
+
+
+  <main class="course-main">
+
+    <p class="small-title">WELCOME TO YOUR STUDY SPACE</p>
+
+    <h1>Choose Your Course</h1>
+
+    <p class="subtitle">
+      Select your education level to continue
+    </p>
+
+
+    <div class="course-grid">
+
+      <div class="course-card blue">
+
+        <div class="course-icon">🏫</div>
+
+        <h2>10th Class</h2>
+
+        <p>
+          Build a strong foundation and prepare for your exams.
+        </p>
+
+        <button onclick="open10th()">
+          Explore Course →
+        </button>
+
+      </div>
+
+
+      <div class="course-card green">
+
+        <div class="course-icon">📖</div>
+
+        <h2>Intermediate</h2>
+
+        <p>
+          Choose MPC or BiPC and plan your subjects.
+        </p>
+
+        <button onclick="openIntermediate()">
+          Explore Course →
+        </button>
+
+      </div>
+
+
+      <div class="course-card purple">
+
+        <div class="course-icon">💻</div>
+
+        <h2>B.Tech</h2>
+
+        <p>
+          Select your engineering branch and subjects.
+        </p>
+
+        <button onclick="openBtech()">
+          Explore Course →
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<!-- ================= INTERMEDIATE ================= -->
+
+<section id="interPage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+        <b>STUDY HOME</b>
+        <small>Plan. Study. Succeed.</small>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="selection-main">
+
+    <button class="back" onclick="showCourses()">
+      ← Back to Courses
+    </button>
+
+    <h1>Intermediate</h1>
+
+    <p>Select your group</p>
+
+
+    <div class="selection-grid">
+
+      <div class="selection-card green">
+
+        <div>📐</div>
+
+        <h2>MPC</h2>
+
+        <p>Mathematics • Physics • Chemistry</p>
+
+        <button onclick="openDashboard('MPC')">
+          Open MPC →
+        </button>
+
+      </div>
+
+
+      <div class="selection-card pink">
+
+        <div>🌱</div>
+
+        <h2>BiPC</h2>
+
+        <p>Botany • Zoology • Physics • Chemistry</p>
+
+        <button onclick="openDashboard('BiPC')">
+          Open BiPC →
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<!-- ================= BTECH ================= -->
+
+<section id="btechPage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+        <b>STUDY HOME</b>
+        <small>Plan. Study. Succeed.</small>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="selection-main">
+
+    <button class="back" onclick="showCourses()">
+      ← Back to Courses
+    </button>
+
+    <h1>B.Tech Branches</h1>
+
+    <p>Select your engineering branch</p>
+
+
+    <div class="branch-grid">
+
+      <div class="branch-card" onclick="openDashboard('CSE')">
+        💻
+        <h2>CSE</h2>
+        <p>Computer Science</p>
+      </div>
+
+      <div class="branch-card" onclick="openDashboard('ECE')">
+        📡
+        <h2>ECE</h2>
+        <p>Electronics & Communication</p>
+      </div>
+
+      <div class="branch-card" onclick="openDashboard('EEE')">
+        ⚡
+        <h2>EEE</h2>
+        <p>Electrical & Electronics</p>
+      </div>
+
+      <div class="branch-card" onclick="openDashboard('Mechanical')">
+        ⚙️
+        <h2>Mechanical</h2>
+        <p>Mechanical Engineering</p>
+      </div>
+
+      <div class="branch-card" onclick="openDashboard('Civil')">
+        🏗️
+        <h2>Civil</h2>
+        <p>Civil Engineering</p>
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<!-- ================= 10TH SUBJECTS ================= -->
+
+<section id="tenPage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+        <b>STUDY HOME</b>
+        <small>Plan. Study. Succeed.</small>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="selection-main">
+
+    <button class="back" onclick="showCourses()">
+      ← Back to Courses
+    </button>
+
+    <h1>10th Class Subjects</h1>
+
+    <p>Select a subject to explore chapters</p>
+
+    <div id="tenSubjects" class="subject-grid"></div>
+
+  </main>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboardPage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+        <b>STUDY HOME</b>
+        <small>Plan. Study. Succeed.</small>
+      </div>
+
+    </div>
+
+
+    <nav>
+
+      <span>⌂ Home</span>
+      <span class="active">🎓 Courses</span>
+      <span>🎯 Goals</span>
+      <span>📊 Progress</span>
+      <span>📅 Schedule</span>
+      <span>♙ Profile</span>
+
+    </nav>
+
+  </header>
+
+
+  <main class="dashboard">
+
+    <button class="back" onclick="showCourses()">
+      ← Back to Courses
+    </button>
+
+
+    <!-- HERO -->
+
+    <div class="dashboard-hero">
+
+      <div class="hero-icon" id="dashIcon">📚</div>
+
+      <div>
+
+        <h1 id="dashTitle">Intermediate - MPC</h1>
+
+        <h3 id="dashSubtitle">
+          Mathematics, Physics, Chemistry
+        </h3>
+
+        <p>
+          Stay focused and consistent.
+          Small progress every day leads to big results.
+        </p>
+
+      </div>
+
+      <div class="hero-image">
+        📚 ✏️ 🎒
+      </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+
+        <h3>Your Progress</h3>
+
+        <div class="circle">
+          <span id="circlePercent">0%</span>
+        </div>
+
+        <p id="progressMessage">
+          Start studying today!
+        </p>
+
+        <div class="line">
+          <div id="progressLine"></div>
+        </div>
+
+        <b id="chapterCount">
+          0 / 0 Chapters Completed
+        </b>
+
+      </div>
+
+
+      <div class="stat-card center-stat">
+
+        <h3>Overall Progress</h3>
+
+        <div class="circle small-circle">
+          <span id="overallPercent">0%</span>
+        </div>
+
+        <p>Completed</p>
+
+      </div>
+
+
+      <div class="stat-card points-card">
+
+        <h3>Your Points</h3>
+
+        <div class="trophy">🏆</div>
+
+        <strong id="totalPoints">0</strong>
+
+        <p>Total Points</p>
+
+        <div class="weekly">
+          +20 points this week 🎉
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SUBJECTS -->
+
+    <div class="content-grid">
+
+      <div class="subjects-panel">
+
+        <div class="panel-title">
+
+          <h2>Subjects & Chapters</h2>
+
+          <span id="courseLabel"></span>
+
+        </div>
+
+        <div id="dashboardSubjects"></div>
+
+      </div>
+
+
+      <!-- ACHIEVEMENTS -->
+
+      <div class="achievement-panel">
+
+        <h2>Recent Achievements</h2>
+
+        <div class="achievement">
+
+          <span>⭐</span>
+
+          <div>
+            <b>Chapter Master</b>
+            <small>Complete your first chapter</small>
+          </div>
+
+          <strong>+20</strong>
+
+        </div>
+
+
+        <div class="achievement">
+
+          <span>🏆</span>
+
+          <div>
+            <b>Consistent Learner</b>
+            <small>Keep studying every day</small>
+          </div>
+
+          <strong>+35</strong>
+
+        </div>
+
+
+        <div class="achievement">
+
+          <span>🔥</span>
+
+          <div>
+            <b>Fast Learner</b>
+            <small>Complete multiple chapters</small>
+          </div>
+
+          <strong>+50</strong>
+
+        </div>
+
+
+        <div class="achievement-message">
+          Every chapter you complete brings you closer to your goals! ✨
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<!-- ================= SUBJECT DETAIL ================= -->
+
+<section id="detailPage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+        <b>STUDY HOME</b>
+        <small>Plan. Study. Succeed.</small>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="detail-main">
+
+    <button class="back" onclick="backToDashboard()">
+      ← Back to Dashboard
+    </button>
+
+
+    <div class="detail-card">
+
+      <div class="detail-heading">
+
+        <div class="detail-icon">📖</div>
+
+        <div>
+
+          <h1 id="detailTitle">Mathematics</h1>
+
+          <p>
+            Complete chapters and earn points ⭐
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="detail-progress">
+
+        <h2>Subject Progress</h2>
+
+        <div class="big-progress">
+
+          <div id="detailProgress"></div>
+
+        </div>
+
+
+        <div class="progress-info">
+
+          <b id="detailPercent">0%</b>
+
+          <span id="detailPoints">0 Points</span>
+
+        </div>
+
+      </div>
+
+
+      <h2 class="chapter-heading">
+        📚 Chapters
+      </h2>
+
+      <div id="chapterList"></div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<!-- ================= STUDY MATTER ================= -->
+
+<section id="studyPage" class="screen hidden">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">🎓</div>
+
+      <div>
+
+        <b>STUDY HOME</b>
+
+        <small>
+          Plan. Study. Succeed.
+        </small>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="detail-main">
+
+    <button class="back" onclick="backToChapters()">
+      ← Back to Chapters
+    </button>
+
+
+    <div class="detail-card">
+
+      <div class="detail-heading">
+
+        <div class="detail-icon">
+          📖
+        </div>
+
+        <div>
+
+          <h1 id="studyTitle">
+            Chapter
+          </h1>
+
+          <p>
+            Study the chapter and complete it ⭐
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div id="studyContent">
+
+      </div>
+
+
+      <div style="margin-top:30px;">
+
+        <button
+          id="studyCompleteBtn"
+          onclick="completeCurrentChapter()">
+
+          COMPLETE +20 ⭐
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
